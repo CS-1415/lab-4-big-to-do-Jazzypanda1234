@@ -1,5 +1,65 @@
-﻿public class TodoList {
+﻿
+using System.ComponentModel;
 
+public class Task {
+
+    public string _title;
+    public bool _status;
+    
+    public string Title(){
+        return "";
+    }
+    public void SetTitle(string title){
+
+    }
+    public bool Status(){
+        return true;
+    }
+    public void ToggleStatus(){
+
+    }
+    public Task(string title){
+
+    }
+}
+
+public class TodoList {
+    public void SwapTasksAt (int i, int j){
+
+    }
+    public int WrappedIndex (int index){
+        return 0;
+    }
+    public int PreviousIndex(){
+        return 0;
+    }
+    public int NextIndex(){
+        return 0;
+    }
+    public void SelectPrevious(){
+
+    }
+    public void SelectNext(){
+
+    }
+    public void SwapWithPrevious(){
+
+    }
+    public void SwapWithNext(){
+
+    }
+    public void Insert(string title){
+
+    }
+    public void UpdateSelectedTitle(string title){
+
+    }
+    public int Length(){
+        return 0;
+    }
+    public void DeleteSelected(){
+
+    }
 }
 
 class TodoListApp {
