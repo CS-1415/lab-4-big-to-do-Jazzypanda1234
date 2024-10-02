@@ -1,0 +1,15 @@
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\bin\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.exe
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\bin\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.deps.json
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\bin\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.runtimeconfig.json
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\bin\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.dll
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\bin\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.pdb
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\obj\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\obj\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.AssemblyInfoInputs.cache
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\obj\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.AssemblyInfo.cs
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\obj\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.csproj.CoreCompileInputs.cache
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\obj\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.sourcelink.json
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\obj\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.dll
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\obj\Debug\net8.0\refint\lab-4-big-to-do-Jazzypanda1234.dll
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\obj\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.pdb
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\obj\Debug\net8.0\lab-4-big-to-do-Jazzypanda1234.genruntimeconfig.cache
+C:\Users\jazzy\OneDrive\Desktop\Programming\Lab 4 The Big To-Do\lab-4-big-to-do-Jazzypanda1234\obj\Debug\net8.0\ref\lab-4-big-to-do-Jazzypanda1234.dll
