@@ -1,22 +1,20 @@
 ﻿
 using System.ComponentModel;
+namespace TheBigToDo;
 
 public class Task {
 
     public string _title;
-    public CompletionStatus _status;
+    public CompletionStatus Status;
 
     public string Title(){
-        return "";
+        return _title;
     }
     public void SetTitle(string title){
-
-    }
-    public CompletionStatus Status(){
-        return _status;
+        _title = title;
     }
     public void ToggleStatus(){
-
+        
     }
     public Task(string title){
 
@@ -24,7 +22,7 @@ public class Task {
 }
 
 public class TodoList {
-    public List<Task> _task;
+    public List<Task> _tasks;
     public int _selectedIndex;
 
     public void SwapTasksAt (int i, int j){
@@ -34,44 +32,44 @@ public class TodoList {
         return 0;
     }
     public int PreviousIndex(){
-        return 0;
+        return _selectedIndex--;
     }
     public int NextIndex(){
-        return 0;
+        return _selectedIndex++;
     }
     public void SelectPrevious(){
 
     }
     public void SelectNext(){
-
+        
     }
     public void SwapWithPrevious(){
-
+        SwapTasksAt(_selectedIndex, _selectedIndex-1);
     }
     public void SwapWithNext(){
 
     }
     public void Insert(string title){
-
+        CurrentTask().SetTitle(title);
     }
     public void UpdateSelectedTitle(string title){
-
+        
     }
     public int Length(){
         return 0;
     }
     public void DeleteSelected(){
-
+        _tasks.RemoveAt(_selectedIndex);
     }
-    public Task CurrentTask(){
-        return ;
+    public Task CurrentTask() {
+        return _tasks[1];
     }
     public Task GetTask(int index){
-        return ;
+        return _tasks[index];
     }
 }
 
-class TodoListApp {
+public class TodoListApp {
     private TodoList _tasks;
     private bool _showHelp = true;
     private bool _insertMode = true;
@@ -85,7 +83,7 @@ class TodoListApp {
         while (!_quit) {
             Console.Clear();
             Display();
-            // ProcessUserInput();
+            ProcessUserInput();
         }
     }
 
@@ -105,7 +103,7 @@ class TodoListApp {
         string arrow = "  ";
         if (task == _tasks.CurrentTask()) arrow = "->";
         string check = " ";
-        // if (task.Status == CompletionStatus.Done) check = "X";
+        if (task.Status == CompletionStatus.Done) check = "X";
         return $"{arrow} [{check}] {task.Title}";
     }
 
@@ -136,53 +134,53 @@ class TodoListApp {
         return Console.ReadLine()!;
     }
 
-//     public void ProcessUserInput() {
-//         if (_insertMode) {
-//             string taskTitle = GetTitle();
-//             if (taskTitle.Length == 0) {
-//                 _insertMode = false;
-//             } else {
-//                 _tasks.Insert(taskTitle);
-//             }
-//         } else {
-//             switch (Console.ReadKey(true).Key) {
-//                 case ConsoleKey.Escape:
-//                     _quit = true;
-//                     break;
-//                 case ConsoleKey.UpArrow:
-//                     _tasks.SelectPrevious();
-//                     break;
-//                 case ConsoleKey.DownArrow:
-//                     _tasks.SelectNext();
-//                     break;
-//                 case ConsoleKey.LeftArrow:
-//                     _tasks.SwapWithPrevious();
-//                     break;
-//                 case ConsoleKey.RightArrow:
-//                     _tasks.SwapWithNext();
-//                     break;
-//                 case ConsoleKey.I:
-//                     _insertMode = true;
-//                     break;
-//                 case ConsoleKey.E:
-//                     _tasks.CurrentTask.Title = GetTitle();
-//                     break;
-//                 case ConsoleKey.H:
-//                     _showHelp = !_showHelp;
-//                     break;
-//                 case ConsoleKey.Enter:
-//                 case ConsoleKey.Spacebar:
-//                     _tasks.CurrentTask.ToggleStatus();
-//                     break;
-//                 case ConsoleKey.Delete:
-//                 case ConsoleKey.Backspace:
-//                     _tasks.DeleteSelected();
-//                     break;
-//                 default:
-//                     break;
-//             }
-//         }
-//     }
+    public void ProcessUserInput() {
+        if (_insertMode) {
+            string taskTitle = GetTitle();
+            if (taskTitle.Length == 0) {
+                _insertMode = false;
+            } else {
+                _tasks.Insert(taskTitle);
+            }
+        } else {
+            switch (Console.ReadKey(true).Key) {
+                case ConsoleKey.Escape:
+                    _quit = true;
+                    break;
+                case ConsoleKey.UpArrow:
+                    _tasks.SelectPrevious();
+                    break;
+                case ConsoleKey.DownArrow:
+                    _tasks.SelectNext();
+                    break;
+                case ConsoleKey.LeftArrow:
+                    _tasks.SwapWithPrevious();
+                    break;
+                case ConsoleKey.RightArrow:
+                    _tasks.SwapWithNext();
+                    break;
+                case ConsoleKey.I:
+                    _insertMode = true;
+                    break;
+                case ConsoleKey.E:
+                    _tasks.CurrentTask()._title = GetTitle();  
+                    break;
+                case ConsoleKey.H:
+                    _showHelp = !_showHelp;
+                    break;
+                case ConsoleKey.Enter:
+                case ConsoleKey.Spacebar:
+                    _tasks.CurrentTask().ToggleStatus();
+                    break;
+                case ConsoleKey.Delete:
+                case ConsoleKey.Backspace:
+                    _tasks.DeleteSelected();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
  }
 
   
