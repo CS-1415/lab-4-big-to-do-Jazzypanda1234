@@ -2,6 +2,7 @@
 using System.ComponentModel;
 namespace TheBigToDo;
 
+
 public class Task {
 
     public string _title;
@@ -14,22 +15,27 @@ public class Task {
         _title = title;
     }
     public void ToggleStatus(){
-        
+        if(Status == CompletionStatus.Done)
+            Status = CompletionStatus.NotDone;
+        else
+            Status = CompletionStatus.Done;
     }
     public Task(string title){
-
+        _title = title;
     }
 }
 
 public class TodoList {
-    public List<Task> _tasks;
-    public int _selectedIndex;
+    public List<Task> _tasks = new() {new Task("Homework"), new Task("School")} ;
+    public int _selectedIndex = 0;
 
     public void SwapTasksAt (int i, int j){
-
+        Task tmp = _tasks[i];
+        _tasks[i] = _tasks[j];
+        _tasks[j] = tmp;
     }
     public int WrappedIndex (int index){
-        return 0;
+        return (index + _tasks.Count) % _tasks.Count;
     }
     public int PreviousIndex(){
         return _selectedIndex--;
@@ -38,31 +44,35 @@ public class TodoList {
         return _selectedIndex++;
     }
     public void SelectPrevious(){
-
+        _selectedIndex = WrappedIndex(_selectedIndex-1);
     }
     public void SelectNext(){
-        
+        _selectedIndex = WrappedIndex(_selectedIndex+1);
     }
     public void SwapWithPrevious(){
-        SwapTasksAt(_selectedIndex, _selectedIndex-1);
+        SwapTasksAt(_selectedIndex, WrappedIndex(_selectedIndex-1));
     }
     public void SwapWithNext(){
-
+        SwapTasksAt(_selectedIndex, WrappedIndex(_selectedIndex+1));
     }
     public void Insert(string title){
-        CurrentTask().SetTitle(title);
+        _tasks.Add(new Task(title));
     }
     public void UpdateSelectedTitle(string title){
-        
+
     }
     public int Length(){
-        return 0;
+        return _tasks.Count;
     }
     public void DeleteSelected(){
-        _tasks.RemoveAt(_selectedIndex);
+        if(_tasks.Count != 0){
+            _tasks.RemoveAt(_selectedIndex);
+            if(_tasks.Count != 0)
+                SelectPrevious();
+        }
     }
     public Task CurrentTask() {
-        return _tasks[1];
+        return _tasks[_selectedIndex];
     }
     public Task GetTask(int index){
         return _tasks[index];
@@ -104,7 +114,7 @@ public class TodoListApp {
         if (task == _tasks.CurrentTask()) arrow = "->";
         string check = " ";
         if (task.Status == CompletionStatus.Done) check = "X";
-        return $"{arrow} [{check}] {task.Title}";
+        return $"{arrow} [{check}] {task.Title()}";
     }
 
     public void DisplayTasks() {
@@ -184,7 +194,6 @@ public class TodoListApp {
  }
 
   
-
   class Program {
     static void Main() {
         new TodoListApp(new TodoList()).Run();
