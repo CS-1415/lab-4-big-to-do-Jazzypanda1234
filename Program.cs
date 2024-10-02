@@ -4,16 +4,16 @@ using System.ComponentModel;
 public class Task {
 
     public string _title;
-    public bool _status;
-    
+    public CompletionStatus _status;
+
     public string Title(){
         return "";
     }
     public void SetTitle(string title){
 
     }
-    public bool Status(){
-        return true;
+    public CompletionStatus Status(){
+        return _status;
     }
     public void ToggleStatus(){
 
@@ -24,6 +24,9 @@ public class Task {
 }
 
 public class TodoList {
+    public List<Task> _task;
+    public int _selectedIndex;
+
     public void SwapTasksAt (int i, int j){
 
     }
@@ -60,6 +63,12 @@ public class TodoList {
     public void DeleteSelected(){
 
     }
+    public Task CurrentTask(){
+        return ;
+    }
+    public Task GetTask(int index){
+        return ;
+    }
 }
 
 class TodoListApp {
@@ -81,7 +90,7 @@ class TodoListApp {
     }
 
     public void Display() {
-        // DisplayTasks();
+        DisplayTasks();
         if (_showHelp) {
             DisplayHelp();
         }
@@ -91,23 +100,23 @@ class TodoListApp {
         Console.WriteLine("----------------------------");
     }
 
-    // public string MakeRow(int i) {
-    //     Task task = _tasks.GetTask(i);
-    //     string arrow = "  ";
-    //     if (task == _tasks.CurrentTask) arrow = "->";
-    //     string check = " ";
-    //     if (task.Status == CompletionStatus.Done) check = "X";
-    //     return $"{arrow} [{check}] {task.Title}";
-    // }
+    public string MakeRow(int i) {
+        Task task = _tasks.GetTask(i);
+        string arrow = "  ";
+        if (task == _tasks.CurrentTask()) arrow = "->";
+        string check = " ";
+        // if (task.Status == CompletionStatus.Done) check = "X";
+        return $"{arrow} [{check}] {task.Title}";
+    }
 
-    // public void DisplayTasks() {
-    //     DisplayBar();
-    //     Console.WriteLine("Tasks:");
-    //     for (int i = 0; i < _tasks.Length; i++) {
-    //         Console.WriteLine(MakeRow(i));
-    //     }
-    //     DisplayBar();
-    // }
+    public void DisplayTasks() {
+        DisplayBar();
+        Console.WriteLine("Tasks:");
+        for (int i = 0; i < _tasks.Length(); i++) {
+            Console.WriteLine(MakeRow(i));
+        }
+        DisplayBar();
+    }
 
     public void DisplayHelp() {
         Console.WriteLine(
@@ -183,3 +192,7 @@ class TodoListApp {
         new TodoListApp(new TodoList()).Run();
     }
   }
+
+  public enum CompletionStatus{
+    NotDone, Done
+}
